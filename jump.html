@@ -1,57 +1,30 @@
-<!DOCTYPE html>
-<html lang="en" data-dpr="2">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
-			name="viewport"
-		/>
-		<!--
-			<meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no">
-		-->
-		<!--
-			<meta name="viewport" content="initial-scale=0.333, maximum-scale=0.333, minimum-scale=0.333, user-scalable=no">
-		-->
-		<meta name="flexible" content="initial-dpr=2" />
-		<meta content="yes" name="apple-mobile-web-app-capable" />
-		<meta content="yes" name="apple-touch-fullscreen" />
-		<meta content="telephone=no" name="format-detection" />
-		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
-	<body>
-		<div id="id"></div>
-	<script src="//st.360buyimg.com/m/js/2014/module/plugIn/downloadAppPlugIn_imk2.js" type="text/javascript"></script>
-<script>
-var outDown = {
-init: function () {
-this.actId = util.getUrlId("id");
-this.render();
-},
-render: function () {
-$("#loadPage .load").click(function(){
-setTimeout(function(){
-hrefs(_data.buttonUrl_1,_data.buttonUrl_2);
-},100)
-util.log("MNewThrow_Download");
-});
-}
-};
-$(function () {
-outDown.init();
-});
-function hrefs(appUrl,downUrl) {
-//appUrl APP内跳转 downUrl:下载
-$.downloadAppPlugInOpenApp({
-closeCallblack: function () { },
-inteneUrl: "openapp.jdmobile://virtual",
-inteneUrlParams: { "category": "jump", "des": "DM", "sourceValue": "sale-act", "sourceType": "Sale", "dmurl": appUrl },
-downAppURl:downUrl,
-downAppIos:downUrl,
-downWeixin:downUrl,
-downIpad:downUrl,
-M_sourceFrom: 'h5',
-noRecord: true
-});
-}
-</script>
-	</body>
+<html>
+
+<body>
+
+<div id="id"></div>
+</body>
 </html>
+
+
+<script src="//st.360buyimg.com/m/js/2014/module/plugIn/downloadAppPlugIn_imk2.js" type="text/javascript"></script>
+<script>
+ var _params = {
+"action": "to",
+ "category": "jump",
+ "des": "getCoupon",
+ "url": appUrl
+
+};
+
+$.downloadAppPlugInOpenApp({
+ downAppURl : '//h5.m.jd.com/active/download/download.html?channel=jd-m', //安卓下载地址，(安卓系统跳转下载地址时的链接，channel参数值是可配置的，如果产品想用专属下载渠道包，需提供channel参数值) 必配
+ downAppIos : 'https://itunes.apple.com/us/app/jing-dong-wang-gou-shou-dan/id414245413', //ios下载地址，(ios系统跳转下载地址时的链接)必配
+ downWeixin : 'http://a.app.qq.com/o/simple.jsp?pkgname=com.jingdong.app.mall&g_f=991850', //微信下载地址，(微信环境中跳转下载地址时的链接)必配
+ downIpad : 'https://itunes.apple.com/cn/app/jing-dong-hd/id434374726?mt=8', //ipad下载地址，(ipad跳转下载地址时的链接)必配
+ inteneUrl: "openApp.jdMobile://virtual?",
+ inteneUrlParams: _params,
+ NoJumpDownLoadPage : true, //默认唤起失败跳app下载页，若为true则唤起失败后不会跳下载页，根据具体情况定
+ M_sourceFrom: 'h5'
+});
+</script>
